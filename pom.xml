@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>de.isb.mjelen</groupId>
+    <artifactId>syscon-data-generator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <dep.version.apache.poi>4.1.0</dep.version.apache.poi>
+        <dep.version.pico.cli>4.0.2</dep.version.pico.cli>
+        <dep.version.slf4j>1.7.21</dep.version.slf4j>
+        <dep.version.javafaker>1.0.1</dep.version.javafaker>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${dep.version.apache.poi}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${dep.version.javafaker}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>${dep.version.pico.cli}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${dep.version.slf4j}</version>
+        </dependency>
+
+    </dependencies>
+</project>
