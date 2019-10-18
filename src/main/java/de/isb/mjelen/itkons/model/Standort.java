@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 public class Standort extends PoiSupport {
+
     private String code;
     private String name;
     private String plz;
@@ -25,14 +26,21 @@ public class Standort extends PoiSupport {
     }
 
     public static class StandortMD implements ModelDescriptor {
+        private static final String[] columns = new String[]{"Code", "Name", "PLZ", "Anschrift"};
+
         @Override
         public void buildHeaderRow(StatefulPoiHelper poiHelper) {
-            poiHelper.buildHeaderFromTitleArray(new String[]{"Code", "Name", "PLZ", "Anschrift"});
+            poiHelper.buildHeaderFromTitleArray(columns);
         }
 
         @Override
         public void autosizeColumns(StatefulPoiHelper poiHelper) {
-            poiHelper.autosizeHelper(5);
+            poiHelper.autosizeHelper(columns.length);
         }
+    }
+
+    @Override
+    public String getIdentifier() {
+        return getCode();
     }
 }

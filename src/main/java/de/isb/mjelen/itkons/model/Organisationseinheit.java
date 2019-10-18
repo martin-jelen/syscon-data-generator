@@ -9,13 +9,14 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 public class Organisationseinheit extends PoiSupport {
+
     private String code;
     private String name;
     private Organisationseinheit uebergeordneteOrgeinheit;
 
     @Override
     public void buildContentRow(StatefulPoiHelper poiHelper, int index) {
-        poiHelper.buildContentRowFromStringArray(index, new String[]{getCode(), getName(), getUebergeordneteOrgeinheit().getCode()});
+        poiHelper.buildContentRowFromStringArray(index, new String[]{getCode(), getName(), getUebergeordneteOrgeinheit() != null ? getUebergeordneteOrgeinheit().getCode() : null});
     }
 
     @Override
@@ -24,15 +25,21 @@ public class Organisationseinheit extends PoiSupport {
     }
 
     public static class OrganisationseinheitMD implements ModelDescriptor {
+        private static final String[] columns = new String[]{"Code", "Name", "Uebergeordnete Einheit (Code)"};
+
         @Override
         public void buildHeaderRow(StatefulPoiHelper poiHelper) {
-            poiHelper.buildHeaderFromTitleArray(new String[]{"Code", "Name", "Uebergeordnete Einheit (Code)"});
+            poiHelper.buildHeaderFromTitleArray(columns);
         }
 
         @Override
         public void autosizeColumns(StatefulPoiHelper poiHelper) {
-            poiHelper.autosizeHelper(3);
+            poiHelper.autosizeHelper(columns.length);
         }
     }
 
+    @Override
+    public String getIdentifier() {
+        return getCode();
+    }
 }

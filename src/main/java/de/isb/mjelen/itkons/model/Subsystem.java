@@ -11,6 +11,7 @@ import java.util.Set;
 @Data
 @SuperBuilder
 public class Subsystem extends PoiSupport {
+
     private String code;
     private String name;
     private String beschreibung;
@@ -27,15 +28,22 @@ public class Subsystem extends PoiSupport {
     }
 
     public static class SubsystemMD implements ModelDescriptor {
+        private static final String[] columns = new String[]{"Code", "Name", "Beschreibung", "Subsystem von (Code)"};
+
         @Override
         public void buildHeaderRow(StatefulPoiHelper poiHelper) {
-            poiHelper.buildHeaderFromTitleArray(new String[]{"Code", "Name", "Beschreibung", "Subsystem von (Code)"});
+            poiHelper.buildHeaderFromTitleArray(columns);
         }
 
         @Override
         public void autosizeColumns(StatefulPoiHelper poiHelper) {
-            poiHelper.autosizeHelper(4);
+            poiHelper.autosizeHelper(columns.length);
         }
+    }
+
+    @Override
+    public String getIdentifier() {
+        return getCode();
     }
 
 }
