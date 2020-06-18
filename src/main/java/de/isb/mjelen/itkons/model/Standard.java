@@ -9,14 +9,21 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 public class Standard extends PoiSupport {
+    public enum StandardArt {
+        RUNTIME, SECURITY, QUALITY
+    }
+
+    public enum StandardKonformitaetStufe {
+        UNBEKANNT, TEILWEISE, GANZ, NICHT
+    }
 
     private String code;
-    private String art;
+    private StandardArt art;
     private String name;
 
     @Override
     public void buildContentRow(StatefulPoiHelper poiHelper, int index) {
-        poiHelper.buildContentRowFromStringArray(index, new String[]{getCode(), getArt(), getName()});
+        poiHelper.buildContentRowFromStringArray(index, new String[]{getCode(), getArt().name(), getName()});
     }
 
     @Override

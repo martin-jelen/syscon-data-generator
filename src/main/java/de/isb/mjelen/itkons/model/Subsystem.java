@@ -17,6 +17,7 @@ public class Subsystem extends PoiSupport {
     private String beschreibung;
     private Informationssystem subsystemVon;
     private Set<Technologie> technologien;
+    private Set<Subsystem> subsysteme;
 
     public void buildContentRow(StatefulPoiHelper poiHelper, int index) {
         poiHelper.buildContentRowFromStringArray(index, new String[]{getCode(), getName(), getBeschreibung(), getSubsystemVon().getCode()});

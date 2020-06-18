@@ -12,13 +12,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @SuperBuilder
-public abstract class PoiSupport {
+public abstract class PoiSupport implements ElementIdentifiable {
     public abstract void buildContentRow(StatefulPoiHelper poiHelper, int index);
     public abstract Class<? extends ModelDescriptor> getModelDescriptor();
     public abstract String getIdentifier();
 
-    protected String serializeSet(Set<? extends PoiSupport> daten) {
-        return daten == null ? "" : daten.stream().map(element -> element.getIdentifier()).collect(Collectors.joining(";"));
+    protected String serializeSet(Set<? extends ElementIdentifiable> daten) {
+        return daten == null ? "" : daten.stream().map(ElementIdentifiable::getIdentifier).collect(Collectors.joining(";"));
     }
 
     protected String serializeInteger(Integer nr) {

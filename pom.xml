@@ -29,6 +29,7 @@
         <dep.version.sqlite>3.28.0</dep.version.sqlite>
         <dep.version.eclipse-collections>10.0.0</dep.version.eclipse-collections>
         <dep.version.opencsv>4.5</dep.version.opencsv>
+        <dep.version.commons-math>3.6.1</dep.version.commons-math>
     </properties>
 
     <dependencies>
@@ -78,5 +79,11 @@
             <artifactId>eclipse-collections</artifactId>
             <version>${dep.version.eclipse-collections}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>${dep.version.commons-math}</version>
+        </dependency>
+
     </dependencies>
 </project>
