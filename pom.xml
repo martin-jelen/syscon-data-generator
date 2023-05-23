@@ -26,7 +26,7 @@
         <dep.version.slf4j>1.7.21</dep.version.slf4j>
         <dep.version.javafaker>1.0.1</dep.version.javafaker>
         <dep.version.lombok>1.18.10</dep.version.lombok>
-        <dep.version.sqlite>3.28.0</dep.version.sqlite>
+        <dep.version.sqlite>3.41.2.2</dep.version.sqlite>
         <dep.version.eclipse-collections>10.0.0</dep.version.eclipse-collections>
         <dep.version.opencsv>4.5</dep.version.opencsv>
         <dep.version.commons-math>3.6.1</dep.version.commons-math>
